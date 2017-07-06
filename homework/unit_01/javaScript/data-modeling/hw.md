@@ -60,13 +60,65 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
-> Answer here
+> var project = {
+  projName: 'Building renovation'
+  projDesc: 'extension of building A'
+  projectmgr: 'Mike Sullivan'//person on charge of the project
+}
+  
+var tasks = {
+  taskName: ['masonry', 'design', 'sheetrock', 'painting', 'woodworking']
+  taskDesc: 'painting of whole finished spaces'
+  taskmgr: 'Charles Chaplin'
+  hrsPlanned: 40 //hours planned for this task
+  hrsWorked: 37 //actual hours spent for this task
+  status: ['open', 'closed', 'in progress', 'on-hold']
+
+
+
+EM- 07/05/17
+var project = {
+  projName: 'Building renovation'
+  projDesc: 'extension of building A'
+  projectmgr: 'Mike Sullivan'//person on charge of the project
+}
+  
+var tasks = {
+  taskName: ['masonry', 'design', 'sheetrock', 'painting', 'woodworking']
+  taskDesc: 'painting of whole finished spaces'
+  taskmgr: 'Charles Chaplin'
+  hrsPlanned: 40 //hours planned for this task
+  hrsWorked: 37 //actual hours spent for this task
+  status: ['open', 'closed', 'in progress', 'on-hold']
+
+A project may have assigned several tasks and at the same time one task maybe part of different projects. we need to consider the many to many relationship between these two entities.
+
+
+
 
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
-> Answer here
+> EM-07/05/17
+var photo = {
+  photoName: 'image34.jpg'
+  photoDesc: 'Santorini vacations 2014'
+  dateTaken: '07/12/14'
+  photoUrl: 'http://myphotoapp/image34.jpg'
+}
+  
+var Album = {
+  AlbumName: 'album07'
+  taskDesc: 'vacations album'
+  
+var User = {
+  UserName: 'Mike Sullivan'
+  UserAlbums: [ 'Album07', 'Album06', 'Album15']  
+ 
+The relationship here is between Users that may one or more albums and each one of these which may have many photos, so it will make sense to have these 3 entities. 
+
+
 
 ### 3. Home Automation Manager
 
@@ -75,7 +127,23 @@ track of the time and temperature of the house that it monitors, and use that
 information to turn on and off different lights and adjust the thermostat up
 and down.
 
-> Answer here
+> EM 07/05/17
+var home = {
+  temperature: 75 degrees’
+  SavingsaTemp: 68 degrees
+
+
+  lights: ['kitchen', 'bathrooms', 'bedrooms', 'livingroom', 'outside']
+  lightStatus: ['ON', 'OFF', 'normal', 'Dimmed']
+}
+var light savings = {
+   dayStartTime: 6:01am
+   dayEndTime: 6:00pm
+   nightStartTime: 6:01pm
+   nightEndTime: 6:00am
+
+these two entities link the temperature the house should have depending of location and time of day or night.
+
 
 ### 4. Sneaker Store
 
@@ -83,7 +151,23 @@ This app will allow customers to browse a list of products (sneakers, in this
 case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
-> Answer here
+> EM - 07/05/17
+var sneaker = {
+  brand: 'Nike'
+  model: 'Nike Air'
+  reference: 'N2345'
+  size:  ['7','8','9','9.5','10','10.5','11]
+  price: $ 220.00
+}  
+var cart = {
+  ordernum: 3456
+  cartStatus: ['preorder','postorder']
+  orderitem: 'N2345' 
+  orderqty: 1
+} 
+
+the two entities above should link the product sold with the order created after the user executes the transaction.
+
 
 ## Representing Abstractions in Code
 
@@ -139,7 +223,20 @@ var exampleLine = {
 
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
-> Answer here
+> EM-07/05/17
+var station = {
+   statName: [‘downtown crossing’, ‘ ‘, ‘ ‘, ‘ ‘]
+   statDescription: "Downtown Crossing is a shopping district that is a small part of downtown Boston, Massachusetts, located due east of Boston Common and west of the Financial District..."
+}
+
+var railLines = {
+   railLineName: [‘green line’, ‘haymarket’, ‘government center’]
+   Stopsnum: [4, 9, 6]
+}
+The two entities above need to be linked because a rail line may have many stops each one of them representing a station. also, if the user travels in one line and need to transfer to another line, the system should display the total number of stops for the entire route.
+
+
+
 
 ### 6. Doctor Appointment App
 
@@ -242,9 +339,26 @@ Under what circumstances might one representation be a better choice than the
 other? Are there any circumstances in which the other representation might be
 the better choice?
 
-> Answer here
+> EM-07/05/17
+var patient = {
+   name: ‘Mike Sullivan’
+   ssnumber: ‘152-86-2997’
+   birthdate: ’07/15/69’
+   Insurance: ‘Medco’
+}
 
-## Tying It Together
+var doctor = {
+   docName: ‘Charles Chaplin’
+   Specialty: ‘chiropractor’
+}
+
+var appointment = {
+   Date: ’07/15/17’
+   Time: 4:00pm
+}
+
+need to link the doctor with the patient and finally with the appointment. I think the best way would be to create the link from the doctors point of view to see all the appointments for that doctor in a specific day and finally see patients particular data.
+
 
 ### 7. Tic-Tac-Toe
 
@@ -257,7 +371,22 @@ a.  What are some possible entities that your application might use to model its
 
 b.  How might those entities be represented in JavaScript code?
 
-  > Answer here
+  > EM-07/05/17
+  var player = {
+   playcircles: ‘O’
+   playcrosses: ‘X’
+}
+
+var board = {
+   Position: [(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)]
+   firstTurn: ‘O’ || ‘X’
+   threeInRow: true or false
+}
+
+these two entities are related. first the users are only two types and they will place their bet in a three dimension array as they take turns.
+
+
+
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?

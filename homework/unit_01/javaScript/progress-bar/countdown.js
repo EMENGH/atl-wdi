@@ -14,7 +14,7 @@ window.onload = function(){
       }
       console.log(timerVal);
       timerVal -= 1;
-      setTimeout(countDown, 1000);
+      setTimeout(countDown, 200);
     }
   };
   countDown();

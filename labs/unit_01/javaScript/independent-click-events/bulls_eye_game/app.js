@@ -22,7 +22,9 @@ window.onload = function() {
   var ring3 = document.querySelector('.ring-3');
 
   body.addEventListener('click', bullseyeGame.miss);
-  ring1.addEventListener('click', bullseyeGame.outerRing)
+  ring1.addEventListener('click', bullseyeGame.outerRing);
+  ring2.addEventListener('click', bullseyeGame.middleRing);
+  ring3.addEventListener('click', bullseyeGame.bullseye);
 }
 
 
@@ -46,6 +48,35 @@ var bullseyeGame = {
 
   outerRing: function(event) {
     event.stopPropagation();
-    alert('outerRing was clicked')
-  }
+   // setTimeout(function());
+    bullseyeGame.updateScore(10);
+  //  bullseyeGame.toggleColor('yellow', event);
+  //  event.target.style.backgroundColor = 'green';
+    alert('outerRing was clicked');
+  },
+   
+  middleRing: function(event) {
+    event.stopPropagation();
+    bullseyeGame.updateScore(50);
+  //  bullseyeGame.toggleColor('white', event);
+    alert('middle Ring was clicked');
+  },
+
+  bullseye: function(event) {
+    event.stopPropagation();
+    bullseyeGame.updateScore(100);
+  //  bullseyeGame.toggleColor('green', event);
+    alert('bulls eye was clicked');
 }
+/*  toggleColor: function(color, event) {
+    event.target.style.backgroundColor = 'yellow';
+    setTimeout(function() {
+      event.target.style.backgroundColor = color;
+    }, 1000);
+  }
+*/
+}
+
+
+
+

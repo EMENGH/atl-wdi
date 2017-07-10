@@ -38,7 +38,7 @@ const CounterCollection = {
     let counter = this.counters.find(function(counter){
       return counter.countId === countId;
     });
-    if (counter) { counter.destroy(); }
+   // if (counter) { counter.destroy(); }
     this.counters = this.counters.filter(function(counter){ //
       return counter.countId !== countId
     });
@@ -48,32 +48,52 @@ const CounterCollection = {
 // UI //
 const Presenter = {
   insertCounterComponent: function(newCountId){
-    console.log(`insert counter component #${newCountId}`);
-    // Your Code Here
+    console.log(`add counter component #${newCountId}`);
+    let newCounterComponent = document.createElement('div');
+    newCounterComponent.innerHTML =
+    `<h3>Count: <span>0</span></h3> <button class='increment'> +1 </button> <button class='delete'> Delete </button>`;
+    newCounterComponent.className += ' counter';
+    newCounterComponent.dataset.countId = newCountId;
+    newCounterComponent.getElementsByClassName('increment')[0].onclick= AppController.onClickIncrement;
+    newCounterComponent.getElementsByClassName('delete')[0].onclick = AppController.onClickDelete;
+    document.getElementById('counter-list').appendChild(newCounterComponent);
   },
   refreshCounterComponent: function(countId){
     console.log(`refresh counter component #${countId}`);
-    // Your Code Here
+    let val = CounterCollection.getCounterValue(countId);
+    document.querySelector(`[data-count-id="${countId}"] span`).innerHTML = val;
   },
   removeCounterComponent: function(countId){             // REACH
     console.log(`remove counter component #${countId}`);
-    // Your Code Here
+    let counterComponent = document.querySelector(`[data-count-id="${countId}"]`)
+    console.log(counterComponent, counterComponent.parent);
+    counterComponent.parentNode.removeChild(counterComponent);
   }
 };
 
 // Top-Level Application Control //
 const AppController = {
   onClickNewCounter: function(event){
-    // Your Code Here
+    CounterCollection.createCounter();
+    Presenter.insertCounterComponent(CounterCollection.lastCountId);
+    console.log(`click the new counter button #${CounterCollection.lastCountId})`);
   },
   onClickIncrement: function(event){
-    // Your Code Here
+    let countId = Number(event.target.parentNode.dataset.countId);
+    console.log(`click the incremental button #${countId}`);
+    CounterCollection.incrementCounter(countId);
+    Presenter.refreshCounterComponent(countId);
   },
-  onClickDelete: function(event){                           // REACH
-    // Your Code Here
+  onClickDelete: function(event){              
+    let countId = Number(event.target.parentNode.dataset.countId);
+    console.log(`click the delete button #${countId}`);
+    CounterCollection.destroyCounter(countId);
+    Presenter.removeCounterComponent(countId);
   }
 };
 
 window.onload = function(){
   document.getElementById('new-counter').onclick = AppController.onClickNewCounter;
 };
+///////////
+

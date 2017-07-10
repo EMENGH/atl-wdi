@@ -3,9 +3,37 @@
 // See LICENSE for details.
 "use strict";
 /// DO NOT EDIT ABOVE THIS LINE ///
-
+qtrs = 0.25;
+dimes = 0.10;
+nickels = 0.05;
+pennies = 0.01;
+changeArray = [];
 var makeChange = function(price, payment) {
-  // Your Code Here
+ price = price * 100;
+ payment = payment * 100;
+ var change = Math.floor(payment - price);
+
+  if(change <= 0) {
+  	console.log("no change");
+  	return[0,0,0,0]
+  
+
+var quarters = math.floor(change/25);
+change = change % 25;
+
+var quarters = math.floor(change/25);
+change = change % 25;
+
+var quarters = math.floor(change/25);
+change = change % 25;
+
+var quarters = math.floor(change/25);
+change = change % 25;
+
+var pennies = Math.floor(change)
+
+  }  	
+
 };
 
 /// DO NOT EDIT BELOW THIS LINE ///

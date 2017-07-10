@@ -20,7 +20,7 @@ main {
 }
 
 .counter {
-  border: black solid 1px;
+  border: black solid 4px;
   margin: 1px;
   text-align: center;
   background-color: violet;

@@ -18,19 +18,16 @@ var makeChange = function(price, payment) {
   	return[0,0,0,0]
   
 
-var quarters = math.floor(change/25);
-change = change % 25;
+    var quarters = math.floor(change/25);
+    change = change % 25;
 
-var quarters = math.floor(change/25);
-change = change % 25;
+    var dimes = math.floor(change/10);
+    change = change % 10;
 
-var quarters = math.floor(change/25);
-change = change % 25;
+    var nickels = math.floor(change/5);
+    change = change % 5;
 
-var quarters = math.floor(change/25);
-change = change % 25;
-
-var pennies = Math.floor(change)
+    var pennies = Math.floor(change);
 
   }  	
 

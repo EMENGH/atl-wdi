@@ -8,6 +8,12 @@ var express = require('express');
 var app     = express();
 //const app = express();
 
+//hbs + setup view engine
+var hbs = require('hbs');
+app.set("view engine", "hbs");
+app.set('views', './views');
+
+
 //create a route for "/"
 app.get('/', function(req, res, next) {
     res.send("Welcome to Pizza Express! ");

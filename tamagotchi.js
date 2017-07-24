@@ -26,11 +26,38 @@ class Tamagotchi {
    yawn() {
     this.restedness -= 1;
     console.log(this.name + " has current restedness = " + this.restedness);
-
    }
 
 
 
+
+   start() {
+    console.log("tamagotchis name: " + this.name);
+    var tamagotchiAction = this;
+
+      this.hungerTimer = setInterval(function() {
+      tamagotchiAction.cry();
+    }, 
+    6000);  // cry every 6 seconds
+
+      this.yawnTimer = setInterval(function() {
+      tamagotchiAction.yawn();
+    },
+    10000); // yawn every 10 seconds
+
+      this.sickTimer = setInterval(function() {
+      self.puke();
+    },
+    20000); // puke every 20 seconds
+
+  };
+
+  stop() {
+    console.log("Stopping " + this.name);
+    clearInterval(this.hungerTimer);
+    clearInterval(this.yawnTimer);
+    clearInterval(this.sickTimer);
+  };
 }
 //create new Tamagotchis
 
@@ -42,5 +69,6 @@ class Tamagotchi {
   newTamag1.cry(24);
   newTamag2.puke();
   newTamag3.yawn();
+  newTamag2.start();
 
 //test out your Tamagotchies below via console.logs

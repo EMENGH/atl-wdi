@@ -15,16 +15,32 @@ class Tamagotchi {
      this.foodInTummy -= 1;
       console.log("food in tummy = " + this.foodInTummy);
       console.log("WAHHH");
-      console.log(this.name + "WAHHH");
-   }    
+      console.log(this.name + " WAHHH");
+   }  
+
+   puke() {
+    this.foodInTummy -= 1;
+    console.log(this.foodInTummy + " WAHHH");
+   }
+
+   yawn() {
+    this.restedness -= 1;
+    console.log(this.name + " has current restedness = " + this.restedness);
+
+   }
+
+
+
 }
 //create new Tamagotchis
 
  const newTamag1 = new Tamagotchi("newTamag1");
- const newTamag2 = new Tamagotchi("newTamag2"); 
+ const newTamag2 = new Tamagotchi(); 
  const newTamag3 = new Tamagotchi("newTamag3");
  
 //invoke each tamagotchi's cry method
   newTamag1.cry(24);
+  newTamag2.puke();
+  newTamag3.yawn();
 
 //test out your Tamagotchies below via console.logs

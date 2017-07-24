@@ -1,4 +1,4 @@
-  console.log('tamagotchi file is loaded');
+ console.log('tamagotchi file is loaded');
 
 //your constructor function here
 class Tamagotchi {
@@ -10,14 +10,18 @@ class Tamagotchi {
 
    //add method called cry
    cry() {
-      return this.foodInTummy -= 1;
-      console.log("value = " + this.foodInTummy);
+     this.foodInTummy -= 1;
+      console.log("food in tummy = " + this.foodInTummy);
       console.log("WAHHH");
    }    
 }
 //create new Tamagotchis
 
- const newTamag = new Tamagotchi("newTamag");
+ const newTamag1 = new Tamagotchi("newTamag1");
+ const newTamag2 = new Tamagotchi("newTamag2"); 
  
 //invoke each tamagotchi's cry method
-  newTamag.cry(24);
+  newTamag1.cry(24);
+
+//test out your Tamagotchies below via console.logs
+

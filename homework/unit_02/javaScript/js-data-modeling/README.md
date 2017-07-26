@@ -1,6 +1,6 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Data Modeling with JavaScript
+# Data Modeling with JavaScript.
 
 Every computer program deals with managing data. How you choose to represent
 these data within your program can have far-reaching implications on every other
@@ -17,7 +17,7 @@ Let's consider an app we want to make, called Senior Paws. Senior Paws is an app
 ![image](data_modeling.png)
 
 
-### Directions
+##### Directions
 
 Data Modeling Round 2! Take a look at each of the app descriptions below. For each description:
   1. Create a data model for the app by listing at least two relevant

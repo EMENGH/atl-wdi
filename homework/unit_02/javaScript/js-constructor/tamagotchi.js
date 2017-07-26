@@ -1,5 +1,6 @@
  console.log('tamagotchi file is loaded');
 
+<<<<<<< HEAD
 //your constructor function here
 class Tamagotchi {
    constructor(name, creatureType, foodInTummy, restedness, health) {
@@ -9,6 +10,9 @@ class Tamagotchi {
        this.name = name;
        this.creatureType = creatureType;
    }
+=======
+//your class declaration here
+>>>>>>> b052ec792449f0b6ad8d99ec0236784a8673c690
 
    //add method called cry
    cry() {

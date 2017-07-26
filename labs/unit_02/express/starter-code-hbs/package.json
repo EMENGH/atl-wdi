@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "ls",
+=======
+  "name": "to-do-express",
+>>>>>>> b052ec792449f0b6ad8d99ec0236784a8673c690
   "version": "1.0.0",
   "description": "An app to build your own custom burger",
   "main": "server.js",
@@ -7,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Jason Seminara",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.4.1",

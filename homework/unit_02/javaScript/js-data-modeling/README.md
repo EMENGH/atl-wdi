@@ -329,6 +329,7 @@ C- RELATIONSHIPS:
 
 
 
+
 ### Final Thoughts:
 
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?

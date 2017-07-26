@@ -29,47 +29,312 @@ entities/abstractions (e.g. Senior Paws app, above) that the app might use, and 
 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
-```
-Write your answer here or in a separate js file.
-```
+A- DATA MODELING:
+  Serv. Providers:   
+       - id                 
+       - S.P. name 
+       - Customer        
+       - email address.
+  Customer
+       - id
+       - name
+       - address
+       - email address
+       - service provider
+
+B- JAVASCRIPT OBJECTS:
+      var ServProvider = {
+         id: number,
+         spName: string,
+         customer: string,
+         emailAddress: string
+         }
+      var customer = {
+         id: number,
+         name: string,
+         address: string,
+         emailAddress: string,
+         servProvider: string
+      }   
+
+C- RELATIONSHIPS: 
+      var exampleServProvider = {
+         id: 45354,
+         name: AT&T,
+         customer: [{
+           id: 3132,
+           name: "Jason Burne",
+           address: "Atlanta, GA",
+           }],
+         emailAddress: "JBurne@att.net"
+      }
+
+      var customer = {
+         id: 3132,
+         name: "Jason Burne",
+         address: "Atlanta, GA",
+         emailAddress: "JBurne@att.net"
+         servProvider: [{
+           id: 45354,
+           name: AT&T,
+           emailAddress: "JBurne@att.net"	
+           }]
+      }        
+  
+
 
 ### 2. Radio on the Internet app
 
 This app hosts a ton of radio stations, each featuring their own playlists of songs. The radio stations can be listed by genre or popularity.
 
+A- DATA MODELING:
+  Stations:   
+       - id                 
+       - name 
+       - frequency
+       - band
+       - genre       
+       - popularity
+  Songs:
+       - id
+       - name
+       - genre
 
-```
-Write your answer here or in a separate js file.
-```
+B- JAVASCRIPT OBJECTS:
+      var Stations = {
+         id: number,
+         name: string,
+         frequency: string,
+         Song: string,
+         Genre: string,
+         popularity: number
+         }
+
+      var songs = {
+         id: number,
+         name: string,
+         Genre: string
+      }   
+
+C- RELATIONSHIPS: 
+      var stations = {
+         id: 3927,
+         name: "HJCK",
+         frequency: "78.7",
+         song: [{
+            id: 77459,
+            name: "windy night",
+            genre: "jazz"
+            }]
+         popularity: 2
+      }
+
+      var song = {
+         id: 77459,
+         name: "windy night",
+         genre: "jazz"
+      }
+         
+
 
 ### 3. Rock Concert App
 
 This app will be a tool for managing all of your favorite bands' concerts; it will keep track of their tour dates, ticket purchasing, and next recommended show.
 
-```
-Write your answer here or in a separate js file.
-```
+A- DATA MODELING:
+  Favorite Bands:   
+       - id                 
+       - name 
+       - concert id        
+  Concert:
+       - id
+       - date/time
+       - address
+       - price
+
+  tickets:
+       - id
+       - price
+       - purchased?
+
+
+B- JAVASCRIPT OBJECTS:
+      var favBand = {
+         id: number,
+         name: string,
+         concert: string
+         }
+      var concert = {
+         id: number,
+         dateTime: timestamp,
+         address: string,
+         price: string
+      }   
+      var tickets = {
+         id: number,
+         price: string,
+         isPurchased: boolean
+      }         
+
+C- RELATIONSHIPS: 
+      var favBand = {
+         id: 24,
+         name: world tour,
+         concert: [{
+           id: 256,
+           dateTime: "04-17-2018-20:00:00",
+           address: "Atlanta, GA",
+           price: $120.00
+           }]
+      }
+
+      var concert = {
+         id: 256,
+         dateTime: "04-17-2018-20:00:00",
+         address: "Atlanta, GA",
+         price: $120.00	
+         }]
+      }        
+
+      var tickets = {
+         id: 098,
+         price: $120.00,
+         purchased: 'N'
+         }]
+      }        
+
+
 
 ### 4. Coffee To-Go App
 
 This app will allow customers to browse a list of coffeeshops nearby, order drinks off of their menu, add those drinks to a shopping cart, and save that cart as a past order once the purchase is complete.
 
+
+A- DATA MODELING:
+  Coffee Shop:   
+       - id                 
+       - name 
+       - menu  
+       - customer
+  customer:
+       - Id
+       - name
+       - cart
+  cart:
+       - Id
+       - items
+       - price
+       - past order
+       - date/time
+
+B- JAVASCRIPT OBJECTS:
+      var coffeeShop = {
+         id: number,
+         name: string,
+         menu: array,
+         customer: string
+      }
+      var customer = {
+         id: number,
+         name: string,
+         cart: string array
+      } 
+      var cart = {
+         id: number,
+         items: string array,
+         price: string,
+         pastOrder: string,
+         dateTime: timestamp
+      } 
+
+C- RELATIONSHIPS: 
+      var coffeeShop = {
+         id: 45555,
+         name: "Javashop",
+         menu: ["appetizers", "entrees", "desserts"],
+         customer: [{
+            id: 3456,
+            name: "David Carradine" }]
+         cart: [{
+            id: 2715,
+            items: ["large black coffee", "hot tea"],
+            price: $11.25,
+            pastOrder: $23.48,
+            dateTime: 08-15-17-09:17:00
+         }]
+       }
+      var customer = {
+      	 id: 322,
+      	 name: "David Carradine",
+      	 cart: [{
+            id: 2715,
+            items: ["large black coffee", "hot tea"],
+            price: $11.25,
+            pastOrder: $23.48,
+            dateTime: 08-15-17-09:17:00
+         }]
+      }
+      var cart = {
+         id: 450,
+         items: ["large black coffee", "hot tea"],
+         price: $11.25,
+         pastOrder: $23.48,
+         dateTime: 08-15-17-09:17:00
+      }
+
+
+
 ### 5. Team Tracker App
 
 This app shows you all the latest stats from your favorite sports teams. You can view individual player stats and full team stats.
 
-```
-Write your answer here or in a separate js file.
-```
+A- DATA MODELING:
+  Team:   
+       - id                 
+       - name 
+       - player       
+  player:
+       - id
+       - name
+       - team
+
+B- JAVASCRIPT OBJECTS:
+      var team = {
+         id: number,
+         name: string,
+         player: [string]
+         }
+      var player = {
+         id: number,
+         name: string,
+         team: string array
+      }   
+
+C- RELATIONSHIPS: 
+      var team = {
+         id: 24,
+         name: "jets",
+         player: [{
+            id: 454,
+            name: "Mike Johnson",
+            team: "jets"
+            }]
+      var player = {
+         id: 256,
+         name: "Mike Johnson",
+         team: "jets"
+         }
+       }
+
+
 
 
 ### Final Thoughts:
 
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?
 
-```
-Write your answer here or in a separate js file.
-```
+what were the relationships, one to one or one to many and how the objects were relating one to each other. 
+
 
 ### Reading and Videos for Tomorrow
 Now that you've had some practice really thinking about the data design of an app, we're going to learn about MongoDB, a no-SQL database. Starting tomorrow, our Express apps will be talking to the Mongo database through Mongoose. Since we're covering a LOT of ground tomorrow, take some time to introduce yourself to concepts and lingo surrounding MongoDB and Mongoose. You will _not_ have to memorize the technical details here.

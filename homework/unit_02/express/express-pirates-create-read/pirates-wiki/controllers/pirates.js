@@ -9,7 +9,7 @@ var pirates = require('../models/pirates.js');
 //for root pirate page
 router.get('/', function(req, res){
     res.render("pirates/index.hbs", {
-        pirates: pirates
+        pirates: pirates.seededPirates
     });
 });
 
@@ -23,7 +23,7 @@ router.get('/new', function(req, res){
 router.get('/:id', function(req, res){
 
     //grab the pirate by id
-    var showPirate = pirates[req.params.id];
+    var showPirate = pirates.seededPirates[req.params.id];
 
     res.render("pirates/show.hbs", {
         pirate: showPirate
@@ -45,21 +45,43 @@ router.post('/', (req, res) => {
         nickname: req.body.nickname
    };
 
-   pirates.push(newPirate);
+   pirates.seededPirates.push(newPirate);
 
    res.redirect("/pirates");
 });
 
-//==============================
-// UPDATE
-//==============================
+// UPDATE 
 
-//==============================
+router.get('/:id/edit', (req, res) => {
+   var showPirate = pirates.seededPirates[req.params.id]
+
+   res.render('pirates/edit.hbs', {
+   pirate: showPirate,
+   id: req.params.id
+  });
+});
+
+router.put('/:id', (req, res) => {
+  var showPirate = pirates.seededPirates[req.params.id]
+  console.log(pirates.seededPirates[req.params.id])
+  showPirate.name = req.body.name
+  showPirate.birthplace = req.body.birthplace
+  showPirate.death_year = req.body.death_year
+  showPirate.base = req.body.base
+  showPirate.nickname = req.body.nickname
+  console.log(pirates.seededPirates[req.params.id])
+  res.method = 'GET';
+  res.redirect(`/pirates/${req.params.id}`)
+})
+
 // DESTROY
-//==============================
 
-//==============================
-// EXPORTS
-//==============================
+router.delete('/:id', (req, res) => {
+  pirates.seededPirates.splice(req.params.id, 1)
+  res.method = 'GET';
+  res.redirect('/pirates')
+})
+
+// EXPORT
 
 module.exports = router;

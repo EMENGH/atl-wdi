@@ -1,3 +1,31 @@
+import React, { Component } from 'react';
+import './styles.css';
+
+import SplashImage from './components/SplashImage.jsx'
+
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <SplashImage />
+        <Description />
+        <MenuList />
+        <LocationList />
+        <Contact />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
 var menuList = [
   {
     name: "Plain Ole Coffee",

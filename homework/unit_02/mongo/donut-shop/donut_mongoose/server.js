@@ -39,7 +39,15 @@ app.use('/', donutsController);
 //======================
 // LISTENERS
 //======================
-//CONNECT MONGOOSE TO "donut_store"
+var db = mongoose.connection;
+db.on('error', function(err) {
+    console.log(err);
+})
 
+db.once('open', () => {
+    console.log('Connection to Db has been successful')
+})
 
-//CREATE THE MONGOOSE CONNECTION and SET APP TO LISTEN to 3000
+app.listen(3000, () => {
+    console.log('port 3000 - listening!')
+})

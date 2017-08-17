@@ -48,5 +48,64 @@ edgarmendez=# SELECT name from city where countrycode = 'SMR';
  San Marino
 (2 rows)
 
+clue # 5:
+
+edgarmendez=# select * from city where name ILIKE '%Serr%';
+  id  |         name         | countrycode |     district      | population
+------+----------------------+-------------+-------------------+------------
+  265 | Serra                | BRA         | Espï¿½rito Santo  |     302666
+  310 | Taboï¿½o da Serra    | BRA         | Sï¿½o Paulo       |     197550
+  370 | Itapecerica da Serra | BRA         | Sï¿½o Paulo       |     126672
+ 3170 | Serravalle           | SMR         | Serravalle/Dogano |       4802
+(4 rows)
+
+dgarmendez=# select name from country where code = 'BRA';
+  name
+--------
+ Brazil
+(1 row)
+
+clue # 6:
+
+edgarmendez=# select capital from country where name = 'Brazil';
+ capital
+---------
+     211
+(1 row)
+
+edgarmendez=# SELECT name FROM city WHERE id = '211';
+    name
+------------
+ Brasï¿½lia
+(1 row)
+
+clue # 7:
+
+dgarmendez=# select * from city where population = 91084;
+  id  |     name     | countrycode |  district  | population
+------+--------------+-------------+------------+------------
+ 4060 | Santa Monica | USA         | California |      91084
+(1 row)
+
+extra:
+
+edgarmendez=# select * from city where id = '211';
+ id  |    name    | countrycode |     district     | population
+-----+------------+-------------+------------------+------------
+ 211 | Brasï¿½lia | BRA         | Distrito Federal |    1969868
+(1 row)
+
+edgarmendez=# UPDATE city SET name = 'Brasilia' WHERE id = '211';
+UPDATE 1
+edgarmendez=# select * from city where id = '211';
+ id  |   name   | countrycode |     district     | population
+-----+----------+-------------+------------------+------------
+ 211 | Brasilia | BRA         | Distrito Federal |    1969868
+(1 row)
+
+
+
+
+
 
 

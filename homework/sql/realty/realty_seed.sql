@@ -2,6 +2,7 @@ TRUNCATE TABLE apartments;
 TRUNCATE TABLE office;
 TRUNCATE TABLE storefront;
 
+
 ALTER SEQUENCE apartments_id_seq RESTART WITH 1;
 
 INSERT INTO apartments(apt_number, bedrooms, bathrooms, address, tenant, occupied_status, square_footage, price) 

@@ -11,6 +11,7 @@ id SERIAL UNIQUE PRIMARY KEY,
  price VARCHAR);
 
 
+
  create table Apartments (
  id SERIAL UNIQUE PRIMARY KEY,
  apt_number VARCHAR NOT NULL,
@@ -21,6 +22,7 @@ id SERIAL UNIQUE PRIMARY KEY,
  occupied_status BOOLEAN,
  square_footage VARCHAR,
  price VARCHAR);
+
 
 
  create table storefront (
